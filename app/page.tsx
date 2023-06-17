@@ -1,10 +1,14 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from "next/image";
+import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <h1>Hello world</h1>
-    </main>
-  )
+    <div className={styles.container}>
+      <div className={styles.item}>
+        <h1 className={styles.title}>
+          Better design for your digital products.
+        </h1>
+      </div>
+    </div>
+  );
 }
