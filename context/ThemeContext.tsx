@@ -1,6 +1,6 @@
 "use client"
 
-import { ModeType, ThemeProviderType } from "@/type";
+import { ModeType, ThemeProviderType } from "@/types";
 import { ReactNode, createContext, useContext, useState } from "react"
 
 

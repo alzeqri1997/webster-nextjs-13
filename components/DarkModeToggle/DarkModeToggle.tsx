@@ -1,7 +1,7 @@
 "use client";
 import styles from "./darkModeToggle.module.css";
 import { useThemeProvider } from "@/context/ThemeContext";
-import { ThemeProviderType } from "@/type";
+import { ThemeProviderType } from "@/types";
 
 const DarkModeToggle = () => {
   const {mode, toggle} = useThemeProvider() as ThemeProviderType;
