@@ -7,6 +7,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { PostType } from "@/types";
+import { toast } from "react-toastify";
 
 const Dashboard = () => {
   const session = useSession();
@@ -31,15 +32,17 @@ const Dashboard = () => {
 
   async function handleDelete(_id: string) {
     try {
-      fetch(`/api/posts/${_id}`, {
+      const res = await fetch(`/api/posts/${_id}`, {
         method: "DELETE"
-      }).then((res) => {
-        console.clear()
-        console.log(res.body)
-        mutate();
-      }).catch((error) => {
-        console.error(error)
       });
+
+      
+      if(res.ok){
+        mutate()
+        const body = await  res.json();
+
+        toast("deleted successfully");
+      }
     } catch (error) {
       console.error(error);
     }
