@@ -56,3 +56,9 @@
   color: #eee;
   font-weight: bold;
 }
+
+@media screen and (max-width: 820px) {
+  .container{
+    flex-direction: column-reverse;
+  }
+}

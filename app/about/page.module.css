@@ -39,3 +39,9 @@
   font-weight: 300;
   text-align: justify;
 }
+
+@media screen and (max-width: 820px) {
+  .textContainer{
+    display: block;
+  }
+}

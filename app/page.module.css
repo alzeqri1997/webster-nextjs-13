@@ -1,6 +1,7 @@
 .container {
   display: flex;
   align-items: center;
+  padding: 40px 0;
   gap: 100px;
 }
 
@@ -40,3 +41,8 @@
   font-weight: 300;
 }
 
+@media screen and (max-width: 820px) {
+  .container {
+    flex-direction: column;
+  }
+}

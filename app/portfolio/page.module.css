@@ -44,3 +44,13 @@
 .item:hover .title {
   color: #53c28b;
 }
+
+@media screen and (max-width: 820px) {
+  .items{
+    flex-direction: column;
+  }
+
+  .item{
+    width: 100%;
+  }
+}

@@ -10,6 +10,13 @@
   font-size: 22px;
 }
 
+.button{
+  background-color: unset;
+  border: unset;
+  cursor: pointer;
+  display: none;
+}
+
 .links {
   display: flex;
   align-items: center;
@@ -23,4 +30,17 @@
   color: white;
   cursor: pointer;
   border-radius: 3px;
+}
+
+
+@media screen and (max-width: 500px) {
+  .links{
+    display: none;
+  }
+
+  .button{
+    display: inline-block;
+  }
+
+
 }
