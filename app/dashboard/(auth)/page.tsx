@@ -13,7 +13,7 @@ const Dashboard = () => {
   const router = useRouter();
 
   const fetcher = (...args: any) =>
-    fetch( ...[args]).then((res) => res.json());
+    fetch(...[args]).then((res) => res.json());
 
   const { data, mutate, error, isLoading } = useSWR(
     `/api/posts?username=${session?.data?.user?.name}`,
@@ -31,9 +31,17 @@ const Dashboard = () => {
 
   async function handleDelete(_id: string) {
     try {
-      await fetch(`/api/posts/${_id}`);
+      fetch(`/api/posts/${_id}`, {
+        method: "DELETE"
+      }).then((res) => {
+        console.clear()
+        console.log(res.body)
+        mutate();
+      }).catch((error) => {
+        console.error(error)
+      });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
@@ -58,16 +66,16 @@ const Dashboard = () => {
     try {
       await fetch("/api/posts", {
         method: "POST",
-        body ,
+        body,
       }).then(() => {
         mutate();
         target.reset();
-      }).catch((error)=>{
+      }).catch((error) => {
         console.clear()
-        console.log('this is error', error)
+        console.error(error)
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
     // const title = event.target.title.value;
   }
@@ -84,10 +92,8 @@ const Dashboard = () => {
       </div>
     ));
 
-    console.log('data', data)
 
     const posts = data ? allPosts : "no Posts yet";
-    console.log(session.data.user?.name)
 
     return (
       <div className={styles.container}>
