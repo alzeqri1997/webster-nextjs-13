@@ -10,7 +10,7 @@ export const DELETE = async (request:Request, {params} : any) => {
 
         await Post.findByIdAndDelete(id);
 
-        return new NextResponse('deleted successfully', {status: 200})
+        return new NextResponse(JSON.stringify({message: 'Deleted successfully'}), {status: 200})
     } catch(err){
         return new NextResponse("Database Error", {status: 500})
     }
