@@ -1,6 +1,5 @@
 import Post from "@/models/Post";
 import connect from "@/utils/db"
-import { Callback } from "mongoose";
 import { NextResponse } from 'next/server'
 
 
